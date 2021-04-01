@@ -39,5 +39,49 @@ class Validation
 
 	//--------------------------------------------------------------------
 	// Rules
+	public $register = [
+		'username' => [
+			'rules' => 'required|min_length[5]',
+		],
+		'password' => [
+			'rules' => 'required',
+		],
+		'repeatPassword' => [
+			'rules' => 'required|matches[password]'
+		],
+	];
+
+	public $register_errors = [
+		'username' => [
+			'required' => '{field} harus diisi',
+			'min_length' => '{field} minimal 5 karakter'
+		],
+		'password' => [
+			'required' => '{field} harus diisi'
+		],
+		'repeatPassword' => [
+			'required' => '{field} harus diisi',
+			'matches' => '{field} tidak match dengan password'
+		]
+	];
+
+	public $login = [
+		'username' => [
+			'rules' => 'required',
+		],
+		'password' => [
+			'rules' => 'required',
+		]
+	];
+
+	public $login_errors = [
+		'username' => [
+			'required' => '{field} harus diisi',
+		],
+		'password' => [
+			'required' => '{field} harus diisi'
+		]
+	];
+
 	//--------------------------------------------------------------------
 }
