@@ -7,7 +7,7 @@
                 <div class="nav">
                     <?php if ($session->get('isLoggedIn')) : ?>
                         <div class="sb-sidenav-menu-heading">Core</div>
-                        <a class="nav-link" href="index.html">
+                        <a class="nav-link" href="<?= site_url('home/index') ?>">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Dashboard
                         </a>
@@ -74,12 +74,12 @@
                         </a>
                     <?php else : ?>
                         <div class="sb-sidenav-menu-heading">Silahkan login</div>
-                        <a class="nav-link" href="index.html">
+                        <a class="nav-link" href="<?= site_url('auth/login') ?>">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Login
                         </a>
                         <div class="sb-sidenav-menu-heading">Belum punya akun? silahkan registrasi</div>
-                        <a class="nav-link" href="index.html">
+                        <a class="nav-link" href="<?= site_url('auth/register') ?>">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Register
                         </a>
