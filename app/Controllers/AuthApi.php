@@ -84,7 +84,7 @@ class AuthApi extends ResourceController
 
                     $this->session->set($sessData);
 
-                    return redirect()->to(site_url('home/index'));
+                    return $this->respond($user);
                 }
             } else {
                 $this->session->setFlashdata('errors', ['User tidak ditemukan']);
