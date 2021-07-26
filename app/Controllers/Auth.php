@@ -38,7 +38,11 @@ class Auth extends BaseController
             $this->session->setFlashdata('errors', $errors);
         }
 
-        return view('register');
+        $data = [
+            'title' => 'Register'
+        ];
+
+        return view('register', $data);
     }
 
     public function login()
@@ -80,7 +84,11 @@ class Auth extends BaseController
             }
         }
 
-        return view('login');
+        $data = [
+            'title' => 'Login'
+        ];
+
+        return view('login', $data);
     }
 
     public function logout()
