@@ -1,3 +1,7 @@
+# sistem_lmk
+Sistem ini dibuat untuk tugas akhir (skripsi)
+
+
 # CodeIgniter 4 Application Starter
 
 ## What is CodeIgniter?
