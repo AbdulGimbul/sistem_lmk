@@ -32,6 +32,10 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
+$routes->get('/guru/create', 'Guru::create');
+$routes->delete('/guru/(:num)', 'Guru::delete/$1');
+$routes->get('/guru/edit/(:segment)', 'Guru::edit/$1');
+$routes->get('/guru/(:any)', 'Guru::detail/$1');
 $routes->resource('user');
 
 /*

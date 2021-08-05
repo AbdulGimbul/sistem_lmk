@@ -58,6 +58,20 @@
 <script src="<?= base_url('assets/themes/js/demo/chart-area-demo.js') ?>"></script>
 <script src="<?= base_url('assets/themes/js/demo/chart-pie-demo.js') ?>"></script>
 
+<script>
+    function previewImg() {
+        const foto = document.querySelector('#foto');
+        const imgPreview = document.querySelector('.img-preview');
+
+        const fileFoto = new FileReader();
+        fileFoto.readAsDataURL(foto.files[0]);
+
+        fileFoto.onload = function(e) {
+            imgPreview.src = e.target.result;
+        }
+    }
+</script>
+
 </body>
 
 </html>

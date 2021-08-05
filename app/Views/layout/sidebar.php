@@ -41,9 +41,10 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Menu Data</h6>
-                        <a class="collapse-item" href="<?= base_url('/pages/data_nasabah') ?>">Data Nasabah</a>
-                        <a class="collapse-item" href="<?= base_url('/pages/data_pengelola') ?>">Data Pengelola</a>
-                        <a class="collapse-item" href="<?= base_url('/pages/data_sampah') ?>">Data Sampah</a>
+                        <a class="collapse-item" href="<?= base_url('/guru') ?>">Data Guru</a>
+                        <a class="collapse-item" href="<?= base_url('/pages/data_pengelola') ?>">Data Murid</a>
+                        <a class="collapse-item" href="<?= base_url('/pages/data_sampah') ?>">Jadwal</a>
+                        <a class="collapse-item" href="<?= base_url('/pages/data_sampah') ?>">Paket Belajar</a>
                     </div>
                 </div>
             </li>
@@ -52,7 +53,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="index.html">
                     <i class="fas fa-fw fa-wrench"></i>
-                    <span>Program Bank Sampah</span>
+                    <span>Program LMK</span>
                 </a>
             </li>
 
