@@ -42,7 +42,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Menu Data</h6>
                         <a class="collapse-item" href="<?= base_url('/guru') ?>">Data Guru</a>
-                        <a class="collapse-item" href="<?= base_url('/pages/data_pengelola') ?>">Data Murid</a>
+                        <a class="collapse-item" href="<?= base_url('/murid') ?>">Data Murid</a>
                         <a class="collapse-item" href="<?= base_url('/pages/data_sampah') ?>">Jadwal</a>
                         <a class="collapse-item" href="<?= base_url('/pages/data_sampah') ?>">Paket Belajar</a>
                     </div>
