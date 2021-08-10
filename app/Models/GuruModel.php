@@ -9,7 +9,7 @@ class GuruModel extends Model
     protected $table = 'tbl_guru';
     protected $primaryKey = 'id_guru';
     protected $allowedFields = [
-        'nama', 'jk', 'username', 'avatar', 'alamat', 'created_date', 'updated_by'
+        'username', 'nama', 'jk', 'tempat_lahir', 'tgl_lahir', 'avatar', 'alamat', 'created_date', 'updated_by'
     ];
     protected $useTimestamps = true;
 

@@ -15,6 +15,7 @@
                             <h5 class="card-title"><?= $guru['nama'] ?></h5>
                             <p class="card-text"><b>Jenis Kelamin : </b><?= $guru['jk'] ?></p>
                             <p class="card-text"><b>Alamat : </b><?= $guru['alamat'] ?></p>
+                            <p class="card-text"><b>Tempat, tanggal lahir : </b><br><?= $guru['tempat_lahir'] . ', ' . $guru['tgl_lahir'] ?></p>
                             <p class="card-text"><small class="text-muted"><b>Username : </b><?= $guru['username'] ?></small></p>
 
                             <a href="<?= base_url('/guru/edit') ?>/<?= $guru['id_guru']; ?>" class="btn btn-warning">Edit</a>

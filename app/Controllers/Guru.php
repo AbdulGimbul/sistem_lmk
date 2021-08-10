@@ -90,9 +90,11 @@ class Guru extends BaseController
         }
 
         $this->guruModel->save([
+            'username' => $this->request->getVar('username'),
             'nama' => $this->request->getVar('nama'),
             'jk' => $this->request->getVar('jk'),
-            'username' => $this->request->getVar('username'),
+            'tempat_lahir' => $this->request->getVar('tempat_lahir'),
+            'tgl_lahir' => $this->request->getVar('tgl_lahir'),
             'alamat' => $this->request->getVar('alamat'),
             'avatar' => $namaFoto
         ]);
@@ -170,8 +172,6 @@ class Guru extends BaseController
             $fileFoto->move('assets/img');
             //ambil nama foto
             $namaFoto = $fileFoto->getName();
-            //hapus file yang lama
-            $fileLama = $this->request->getVar('fotoLama');
         } else {
             //pindahkan foto ke folder img
             $fileFoto->move('assets/img');
@@ -185,9 +185,11 @@ class Guru extends BaseController
 
         $this->guruModel->save([
             'id_guru' => $id,
+            'username' => $this->request->getVar('username'),
             'nama' => $this->request->getVar('nama'),
             'jk' => $this->request->getVar('jk'),
-            'username' => $this->request->getVar('username'),
+            'tempat_lahir' => $this->request->getVar('tempat_lahir'),
+            'tgl_lahir' => $this->request->getVar('tgl_lahir'),
             'alamat' => $this->request->getVar('alamat'),
             'avatar' => $namaFoto
         ]);

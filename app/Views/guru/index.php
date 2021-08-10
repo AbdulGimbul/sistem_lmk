@@ -30,7 +30,7 @@
                             <td><?= $g['alamat']; ?></td>
                             <td><img src="<?php base_url() ?>/assets/img/<?= $g['avatar']; ?>" width="300px" alt=""></td>
                             <td>
-                                <a href="<?= base_url('/guru') ?>/<?= $g['id_guru'] ?>" class="btn btn-success">Detail</a>
+                                <a href="<?= base_url('/guru/' . $g['id_guru']) ?>" class="btn btn-success">Detail</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

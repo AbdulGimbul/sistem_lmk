@@ -10,8 +10,17 @@ class MuridModel extends Model
     protected $primaryKey = 'id_murid';
     protected $useTimestamps = true;
     protected $allowedFields = [
-        'nama', 'alamat'
+        'nama', 'jk', 'tempat_lahir', 'tgl_lahir', 'alamat', 'asal_sekolah', 'kelas', 'avatar', 'created_at', 'updated_at'
     ];
+
+    public function getMurid($id = false)
+    {
+        if ($id == false) {
+            return $this->findAll();
+        }
+
+        return $this->where(['id_murid' => $id])->first();
+    }
 
     public function search($cari)
     {

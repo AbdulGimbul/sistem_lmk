@@ -9,6 +9,12 @@
             <form action="<?= base_url('guru/save') ?>" method="post" enctype="multipart/form-data">
                 <?= csrf_field(); ?>
                 <div class="row mb-3">
+                    <label for="username" class="col-sm-2 col-form-label">Username</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="username" name="username" value="<?= old('username') ?>">
+                    </div>
+                </div>
+                <div class="row mb-3">
                     <label for="nama" class="col-sm-2 col-form-label">Nama</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control <?= ($validation->hasError('nama')) ? 'is-invalid' : '' ?>" id="nama" name="nama" value="<?= old('nama') ?>" autofocus>
@@ -34,9 +40,15 @@
                         </div>
                 </fieldset>
                 <div class="row mb-3">
-                    <label for="username" class="col-sm-2 col-form-label">Username</label>
+                    <label for="tempat_lahir" class="col-sm-2 col-form-label">Tempat Lahir</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="username" name="username" value="<?= old('username') ?>">
+                        <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" value="<?= old('tempat_lahir') ?>">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="tgl_lahir" class="col-sm-2 col-form-label">Tanggal Lahir</label>
+                    <div class="col-sm-10">
+                        <input type="date" class="form-control datepicker" id="tgl_lahir" name="tgl_lahir" value="<?= old('tgl_lahir') ?>">
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -67,4 +79,4 @@
     </div>
 </div>
 
-<?= $this->endsection() ?>
+<?= $this->endSection() ?>

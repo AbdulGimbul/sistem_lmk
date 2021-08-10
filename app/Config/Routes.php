@@ -33,9 +33,13 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('/guru/create', 'Guru::create');
+$routes->get('/murid/create', 'Murid::create');
 $routes->delete('/guru/(:num)', 'Guru::delete/$1');
+$routes->delete('/murid/(:num)', 'Murid::delete/$1');
 $routes->get('/guru/edit/(:segment)', 'Guru::edit/$1');
+$routes->get('/murid/edit/(:segment)', 'Murid::edit/$1');
 $routes->get('/guru/(:any)', 'Guru::detail/$1');
+$routes->get('/murid/(:any)', 'Murid::detail/$1');
 $routes->resource('user');
 
 /*
