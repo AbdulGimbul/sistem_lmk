@@ -9,8 +9,17 @@ class UserModel extends Model
     protected $table = 'user';
     protected $primaryKey = 'id';
     protected $allowedFields = [
-        'username', 'avatar', 'password', 'salt', 'created_date', 'created_by', 'updated_date', 'updated_by'
+        'nik', 'nama', 'jk', 'alamat', 'username', 'avatar', 'password', 'salt', 'created_at', 'updated_at'
     ];
     protected $returnType = 'App\Entities\User';
     protected $useTimestamps = false;
+
+    public function getUser($id = false)
+    {
+        if ($id == false) {
+            return $this->findAll();
+        }
+
+        return $this->where(['id' => $id])->first();
+    }
 }

@@ -45,6 +45,7 @@
 <script src="<?= base_url('assets/themes/vendor/jquery/jquery.min.js') ?>"></script>
 <script src="<?= base_url('assets/themes/vendor/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
 <script src="<?= base_url('assets/js/jquery-3.6.0.min.js') ?>"></script>
+<script src="<?= base_url('assets/js/calendar.js') ?>"></script>
 
 <!-- Core plugin JavaScript-->
 <script src="<?= base_url('assets/themes/vendor/jquery-easing/jquery.easing.min.js') ?>"></script>

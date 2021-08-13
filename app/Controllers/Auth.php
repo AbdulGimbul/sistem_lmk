@@ -4,6 +4,13 @@ namespace App\Controllers;
 
 class Auth extends BaseController
 {
+    /**
+     * Instance of the main Request object.
+     *
+     * @var HTTP\IncomingRequest
+     */
+    protected $request;
+
     public function __construct()
     {
         helper('form');
