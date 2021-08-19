@@ -11,7 +11,9 @@ class UserModel extends Model
     protected $allowedFields = [
         'nik', 'nama', 'jk', 'alamat', 'username', 'avatar', 'password', 'salt', 'created_at', 'updated_at'
     ];
+
     protected $returnType = 'App\Entities\User';
+
     protected $useTimestamps = false;
 
     public function getUser($id = false)

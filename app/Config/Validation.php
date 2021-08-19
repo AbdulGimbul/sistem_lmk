@@ -40,8 +40,17 @@ class Validation
 	//--------------------------------------------------------------------
 	// Rules
 	public $register = [
-		'username' => [
+		'nik' => [
+			'rules' => 'required|min_length[16]|max_length[16]',
+		],
+		'nama' => [
+			'rules' => 'required|min_length[1]',
+		],
+		'alamat' => [
 			'rules' => 'required|min_length[5]',
+		],
+		'username' => [
+			'rules' => 'required|min_length[4]',
 		],
 		'password' => [
 			'rules' => 'required',
@@ -52,9 +61,22 @@ class Validation
 	];
 
 	public $register_errors = [
-		'username' => [
+		'nik' => [
+			'required' => '{field} harus diisi',
+			'min_length' => '{field} harus terdiri dari 16 angka',
+			'max_length' => '{field} harus terdiri dari 16 angka'
+		],
+		'nama' => [
+			'required' => '{field} harus diisi',
+			'min_length' => '{field} minimal 1 karakter'
+		],
+		'alamat' => [
 			'required' => '{field} harus diisi',
 			'min_length' => '{field} minimal 5 karakter'
+		],
+		'username' => [
+			'required' => '{field} harus diisi',
+			'min_length' => '{field} minimal 4 karakter'
 		],
 		'password' => [
 			'required' => '{field} harus diisi'

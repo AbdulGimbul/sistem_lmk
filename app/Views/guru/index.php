@@ -13,13 +13,13 @@
                             <?= session()->getFlashdata('pesan'); ?>
                         </div>
                     <?php endif; ?>
-                    <table class="table">
+                    <table id="example1" class="table table-bordered table-striped">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
+                                <th scope="col">Avatar</th>
                                 <th scope="col">Nama</th>
                                 <th scope="col">Alamat</th>
-                                <th scope="col">Avatar</th>
                                 <th scope="col">Aksi</th>
                             </tr>
                         </thead>
@@ -28,9 +28,9 @@
                             <?php foreach ($guru as $g) : ?>
                                 <tr>
                                     <th scope="row"><?= $i++ ?></th>
+                                    <td><img src="<?php base_url() ?>/assets/img/<?= $g['avatar']; ?>" class="avatar" alt=""></td>
                                     <td><?= $g['nama']; ?></td>
                                     <td><?= $g['alamat']; ?></td>
-                                    <td><img src="<?php base_url() ?>/assets/img/<?= $g['avatar']; ?>" width="300px" alt=""></td>
                                     <td>
                                         <a href="<?= base_url('/guru/' . $g['id_guru']) ?>" class="btn btn-success">Detail</a>
                                     </td>

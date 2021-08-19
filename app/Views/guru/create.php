@@ -75,7 +75,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary">Daftar</button>
+                        <button type="submit" class="btn btn-primary">Tambah</button>
                     </form>
                 </div>
             </div>

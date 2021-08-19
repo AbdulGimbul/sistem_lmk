@@ -23,11 +23,10 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <table class="table">
+                    <table id="table-minimal" class="table table-bordered table-striped">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Avatar</th>
                                 <th scope="col">Nama</th>
                                 <th scope="col">Jenis Kelamin</th>
                                 <th scope="col">Alamat</th>
@@ -39,7 +38,6 @@
                             <?php foreach ($murid as $m) : ?>
                                 <tr>
                                     <th scope="row"><?= $i++ ?></th>
-                                    <td><img src="<?php base_url() ?>/assets/img/<?= $m['avatar']; ?>" width="70px" alt=""></td>
                                     <td><?= $m['nama']; ?></td>
                                     <td><?= $m['jk']; ?></td>
                                     <td><?= $m['alamat']; ?></td>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Registration Page (v2)</title>
+    <title>Registrasi</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -19,7 +19,30 @@
 <body class="hold-transition register-page">
 
     <?php
+    $nik = [
+        'placeholder' => 'Masukkan NIK',
+        'type' => 'number',
+        'name' => 'nik',
+        'id' => 'nik',
+        'class' => 'form-control'
+    ];
+
+    $nama = [
+        'placeholder' => 'Masukkan nama lengkap',
+        'name' => 'nama',
+        'id' => 'nama',
+        'class' => 'form-control'
+    ];
+
+    $alamat = [
+        'placeholder' => 'Masukkan alamat lengkap',
+        'name' => 'alamat',
+        'id' => 'alamat',
+        'class' => 'form-control'
+    ];
+
     $username = [
+        'placeholder' => 'Masukkan nama username',
         'name' => 'username',
         'id' => 'usename',
         'value' => null,
@@ -27,12 +50,16 @@
     ];
 
     $password = [
+        'placeholder' => 'Masukkan password',
+        'type' => 'password',
         'name' => 'password',
         'id' => 'password',
         'class' => 'form-control'
     ];
 
     $repeatPassword = [
+        'placeholder' => 'Ulangi masukkan password',
+        'type' => 'password',
         'name' => 'repeatPassword',
         'id' => 'repeatPassword',
         'class' => 'form-control'
@@ -64,20 +91,76 @@
                 <?php endif ?>
 
                 <?= form_open('Auth/register') ?>
-                <div class="form-group">
-                    <?= form_label("Username", "username") ?>
+
+                <div class="input-group mb-3">
+                    <?= form_input($nik) ?>
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group mb-3">
+                    <?= form_input($nama) ?>
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <fieldset class="row mb-3">
+                    <legend class="col-form-label">Jenis Kelamin:</legend>
+                    <div class="col-sm-10">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="jk" id="laki-laki" value="Laki-laki" checked>
+                            <label class="form-check-label" for="laki-laki">
+                                Laki-laki
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="jk" id="perempuan" value="Perempuan">
+                            <label class="form-check-label" for="perempuan">
+                                Perempuan
+                            </label>
+                        </div>
+                </fieldset>
+
+                <div class="input-group mb-3">
+                    <?= form_input($alamat) ?>
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group mb-3">
                     <?= form_input($username) ?>
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <?= form_label("Password", "password") ?>
+                <div class="input-group mb-3">
                     <?= form_input($password) ?>
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                    </div>
                 </div>
 
-
-                <div class="form-group">
-                    <?= form_label("Repeat Password", "repeatPassword") ?>
+                <div class="input-group mb-3">
                     <?= form_input($repeatPassword) ?>
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="text-right">
@@ -85,13 +168,14 @@
                 </div>
                 <?= form_close() ?>
 
-            </div>
+                <a href="<?= base_url('/auth/login') ?>" class="text-center">I already have a membership</a>
 
-            <a href="<?= base_url('/auth/login') ?>" class="text-center">I already have a membership</a>
+                <!-- /.form-box -->
+            </div>
+            <!-- /.card -->
         </div>
-        <!-- /.form-box -->
-    </div><!-- /.card -->
-    <!-- /.register-box -->
+        <!-- /.register-box -->
+    </div>
 
     <!-- jQuery -->
     <script src="<?= base_url('assets/themes/plugins/jquery/jquery.min.js') ?>"></script>

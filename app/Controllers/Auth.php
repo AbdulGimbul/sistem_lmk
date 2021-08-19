@@ -23,7 +23,7 @@ class Auth extends BaseController
         if ($this->request->getPost()) {
             //lakukan validasi untuk data yang dipost
             $data = $this->request->getPost();
-            $validate = $this->validation->run($data, 'register');
+            $this->validation->run($data, 'register');
             $errors = $this->validation->getErrors();
 
             //jika tidak ada errors jalankan
@@ -35,8 +35,14 @@ class Auth extends BaseController
                 $user->username = $this->request->getPost('username');
                 $user->password = $this->request->getPost('password');
 
+                $user->nik = $this->request->getPost('nik');
+                $user->nama = $this->request->getPost('nama');
+                $user->jk = $this->request->getPost('jk');
+                $user->alamat = $this->request->getPost('alamat');
+                $user->role = 2;
+
                 $user->created_by = 0;
-                $user->created_date = date("Y-m-d H:i:s");
+                $user->created_at = date("Y-m-d H:i:s");
 
                 $userModel->save($user);
 
@@ -79,7 +85,8 @@ class Auth extends BaseController
                     $sessData = [
                         'username' => $user->username,
                         'id' => $user->id,
-                        'isLoggedIn' => TRUE
+                        'isLoggedIn' => TRUE,
+                        'role' => $user->role
                     ];
 
                     $this->session->set($sessData);

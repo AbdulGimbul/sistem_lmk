@@ -48,6 +48,40 @@
 <script src="<?= base_url('assets/themes/dist/js/demo.js') ?>"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="<?= base_url('assets/themes/dist/js/pages/dashboard.js') ?>"></script>
+<!-- DataTables  & Plugins -->
+<script src="<?= base_url('assets/themes/plugins/datatables/jquery.dataTables.min.js') ?>"></script>
+<script src="<?= base_url('assets/themes/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') ?>"></script>
+<script src="<?= base_url('assets/themes/plugins/datatables-responsive/js/dataTables.responsive.min.js') ?>"></script>
+<script src="<?= base_url('assets/themes/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') ?>"></script>
+<script src="<?= base_url('assets/themes/plugins/datatables-buttons/js/dataTables.buttons.min.js') ?>"></script>
+<script src="<?= base_url('assets/themes/plugins/datatables-buttons/js/buttons.bootstrap4.min.js') ?>"></script>
+<script src="<?= base_url('assets/themes/plugins/jszip/jszip.min.js') ?>"></script>
+<script src="<?= base_url('assets/themes/plugins/pdfmake/pdfmake.min.js') ?>"></script>
+<script src="<?= base_url('assets/themes/plugins/pdfmake/vfs_fonts.js') ?>"></script>
+<script src="<?= base_url('assets/themes/plugins/datatables-buttons/js/buttons.html5.min.js') ?>"></script>
+<script src="<?= base_url('assets/themes/plugins/datatables-buttons/js/buttons.print.min.js') ?>"></script>
+<script src="<?= base_url('assets/themes/plugins/datatables-buttons/js/buttons.colVis.min.js') ?>"></script>
+<!-- Page specific script -->
+<script>
+    $(function() {
+        $("#example1").DataTable({
+            "responsive": true,
+            "lengthChange": false,
+            "autoWidth": false,
+            "searching": false,
+            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+        $('#table-minimal').DataTable({
+            "paging": false,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+        });
+    });
+</script>
 </body>
 
 </html>

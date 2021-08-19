@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?= $title ?></title>
-
+    <!-- My Style -->
+    <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
@@ -26,6 +26,12 @@
     <link rel="stylesheet" href="<?= base_url('assets/themes/plugins/daterangepicker/daterangepicker.css') ?>">
     <!-- summernote -->
     <link rel="stylesheet" href="<?= base_url('assets/themes/plugins/summernote/summernote-bs4.min.css') ?>">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="<?= base_url('assets/themes/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/themes/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/themes/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') ?>">
+    <title><?= $title ?></title>
+
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -44,9 +50,6 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="index3.html" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
                     <a href="#" class="nav-link">Contact</a>
                 </li>
             </ul>
@@ -55,9 +58,6 @@
             <ul class="navbar-nav ml-auto">
                 <!-- Navbar Search -->
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-                        <i class="fas fa-search"></i>
-                    </a>
                     <div class="navbar-search-block">
                         <form class="form-inline">
                             <div class="input-group input-group-sm">
@@ -178,13 +178,10 @@
                         <!-- Menu Body -->
                         <li class="user-body">
                             <div class="row">
-                                <div class="col-4 text-center">
+                                <div class="col text-center">
                                     <a href="#">Followers</a>
                                 </div>
-                                <div class="col-4 text-center">
-                                    <a href="#">Sales</a>
-                                </div>
-                                <div class="col-4 text-center">
+                                <div class="col text-center">
                                     <a href="#">Friends</a>
                                 </div>
                             </div>
@@ -192,7 +189,7 @@
                         </li>
                         <!-- Menu Footer-->
                         <li class="user-footer">
-                            <a href="#" class="btn btn-default btn-flat">Profile</a>
+                            <a href="<?= base_url('user') ?>" class="btn btn-default btn-flat">Profile</a>
                             <a href="<?= base_url('auth/logout') ?>" class="btn btn-default btn-flat float-right">Sign out</a>
                         </li>
                     </ul>

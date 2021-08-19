@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Log in (v2)</title>
+    <title>Login LMK</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -27,6 +27,7 @@
     ];
 
     $password = [
+        'type' => 'password',
         'name' => 'password',
         'id' => 'password',
         'class' => 'form-control'
@@ -40,7 +41,7 @@
         <!-- /.login-logo -->
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
-                <a href="../../index2.html" class="h1"><b>Admin</b>LTE</a>
+                <h1><b>LMK</b></h1>
             </div>
             <div class="card-body">
                 <p class="login-box-msg">Sign in to start your session</p>
@@ -74,18 +75,17 @@
                 </div>
 
                 <?= form_close() ?>
-            </div>
 
-            <p class="mb-1">
-                <a href="forgot-password.html">I forgot my password</a>
-            </p>
-            <p class="mb-0">
-                <a href="<?= base_url('/auth/register') ?>" class="text-center">Register a new membership</a>
-            </p>
+                <p class="mb-1 mt-3">
+                    <a href="forgot-password.html">I forgot my password</a>
+                </p>
+                <p class="mb-0">
+                    <a href="<?= base_url('/auth/register') ?>" class="text-center">Register a new membership</a>
+                </p>
+            </div>
+            <!-- /.card-body -->
         </div>
-        <!-- /.card-body -->
-    </div>
-    <!-- /.card -->
+        <!-- /.card -->
     </div>
     <!-- /.login-box -->
 
