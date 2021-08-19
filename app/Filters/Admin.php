@@ -6,13 +6,14 @@ use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\Filters\FilterInterface;
 
-class Auth implements FilterInterface
+class Admin implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)
     {
         // Do something here
-        if (!session()->has('isLoggedIn')) {
+        if (session()->get('role') == "") {
             # code...
+            session()->setFlashdata('pesan', 'Anda belum login, silahkan login terlebih dahulu');
             return redirect()->to(site_url('auth/login'));
         }
     }
@@ -20,5 +21,9 @@ class Auth implements FilterInterface
     public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)
     {
         // Do something here
+        if (session()->get('role') == 1) {
+            # code...
+            return redirect()->to(site_url('home/index'));
+        }
     }
 }

@@ -1,0 +1,29 @@
+<?php
+
+namespace App\Filters;
+
+use CodeIgniter\HTTP\RequestInterface;
+use CodeIgniter\HTTP\ResponseInterface;
+use CodeIgniter\Filters\FilterInterface;
+
+class User implements FilterInterface
+{
+    public function before(RequestInterface $request, $arguments = null)
+    {
+        // Do something here
+        if (session()->get('role') == "") {
+            # code...
+            session()->setFlashdata('pesan', 'Anda belum login, silahkan login terlebih dahulu');
+            return redirect()->to(site_url('auth/login'));
+        }
+    }
+
+    public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)
+    {
+        // Do something here
+        if (session()->get('role') == 2) {
+            # code...
+            return redirect()->to(site_url('home/index'));
+        }
+    }
+}
