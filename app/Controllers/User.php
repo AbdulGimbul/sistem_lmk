@@ -24,6 +24,7 @@ class User extends BaseController
         $id = $session->get('id');
 
         $user = $this->userModel->getUser($id);
+
         $data = [
             'title' => 'Profil Akun',
             'user' => $user

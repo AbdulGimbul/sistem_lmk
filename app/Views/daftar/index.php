@@ -11,6 +11,16 @@
                     <form action="<?= base_url('daftar/save') ?>" method="post" enctype="multipart/form-data">
                         <?= csrf_field(); ?>
                         <div class="row mb-3">
+                            <label for="asal_sekolah" class="col-sm-2 col-form-label">Nama Orang Tua</label>
+                            <div class="col-sm-10">
+                                <select class="custom-select" name="user" id="user">
+                                    <?php foreach ($user as $u) : ?>
+                                        <option value="<?= $u->id_user; ?>" selected><?= $u->nama ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
                             <label for="nama" class="col-sm-2 col-form-label">Nama</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control <?= ($validation->hasError('nama')) ? 'is-invalid' : '' ?>" id="nama" name="nama" value="<?= old('nama') ?>" autofocus>
@@ -114,7 +124,7 @@
                         //setelah ini maka akan muncul guru yg di hari dan jam itu kosong
                         //atau akan tampil guru yg paling sedikit beban mengajarnya makan ada di list paling atas
                         <div class="row mb-3">
-                            <label for="asal_sekolah" class="col-sm-2 col-form-label">Pilih Gurur</label>
+                            <label for="asal_sekolah" class="col-sm-2 col-form-label">Pilih Guru</label>
                             <div class="col-sm-10">
                                 <select class="custom-select" name="guru" id="guru">
                                     <?php foreach ($guru as $g) : ?>
@@ -123,6 +133,7 @@
                                 </select>
                             </div>
                         </div>
+                        <input type="hidden" name="status" id="status" value="0">
                         <button type="submit" class="btn btn-primary">Daftar</button>
                     </form>
                 </div>

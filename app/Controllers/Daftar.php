@@ -2,10 +2,11 @@
 
 namespace App\Controllers;
 
+use App\Models\DaftarModel;
 use App\Models\GuruModel;
 use App\Models\JadwalModel;
 use App\Models\MuridModel;
-use App\Models\DaftarModel;
+use App\Models\UserModel;
 
 class Daftar extends BaseController
 {
@@ -18,13 +19,13 @@ class Daftar extends BaseController
     protected $guruModel;
     protected $muridModel;
     protected $jadwalModel;
-    protected $daftarModel;
 
     public function __construct()
     {
         $this->guruModel = new GuruModel();
         $this->muridModel = new MuridModel();
         $this->jadwalModel = new JadwalModel();
+        $this->userModel = new UserModel();
         $this->daftarModel = new DaftarModel();
     }
 
@@ -33,6 +34,7 @@ class Daftar extends BaseController
         $data = [
             'title' => 'Jadwal',
             'guru' => $this->guruModel->findAll(),
+            'user' => $this->userModel->findAll(),
             'validation' => \Config\Services::validation()
         ];
 
@@ -77,8 +79,24 @@ class Daftar extends BaseController
             $namaFoto = $fileFoto->getName();
         }
 
+        $ambilUser = $this->request->getVar('user');
+        $namaMurid = $this->request->getVar('nama');
+
+        $status = $this->request->getVar('status');
+        $this->daftarModel->save([
+            'status' => $status
+        ]);
+
+        $db = \Config\Database::connect();
+        $db->transBegin();
+        $query = $db->query("INSERT INTO tbl_pendaftaran (status) VALUES ('0')");
+        $queryDaftar = $db->query("INSERT INTO tbl_murid (id_daftar) VALUES(LAST_INSERT_ID())");
+        // $idDaftar = $query->getLastRow('array');
+
         $this->muridModel->save([
-            'nama' => $this->request->getVar('nama'),
+            'id_daftar' => $queryDaftar,
+            'id_user' => $ambilUser,
+            'nama' => $namaMurid,
             'jk' => $this->request->getVar('jk'),
             'tempat_lahir' => $this->request->getVar('tempat_lahir'),
             'tgl_lahir' => $this->request->getVar('tgl_lahir'),
@@ -88,13 +106,15 @@ class Daftar extends BaseController
             'avatar' => $namaFoto
         ]);
 
+        $idUser = $this->muridModel->where(['id_user' => $ambilUser, 'nama' => $namaMurid])->first();
+
         $this->jadwalModel->save([
+            'id_murid' => $idUser['id_murid'],
             'id_guru' => $this->request->getVar('guru'),
             'hari' => $this->request->getVar('hari'),
-            'jam' => $this->request->getVar('jam')
+            'jam' => $this->request->getVar('jam'),
+            'status' => $status
         ]);
-
-        $this->daftarModel->save([]);
 
         session()->setFlashdata('pesan', 'Data murid baru berhasil didaftarkan.');
 

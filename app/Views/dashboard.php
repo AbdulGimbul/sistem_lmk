@@ -61,7 +61,7 @@
                             <p>Jumlah Murid</p>
                         </div>
                         <div class="icon">
-                            <i class="ion ion-person-add"></i>
+                            <i class="ion ion-pie-graph"></i>
                         </div>
                         <div class="small-box-footer p-3"></div>
                     </div>
@@ -76,7 +76,7 @@
                             <p>Murid Baru</p>
                         </div>
                         <div class="icon">
-                            <i class="ion ion-pie-graph"></i>
+                            <i class="ion ion-person-add"></i>
                         </div>
                         <a href="<?= base_url('daftar/') ?>" class="small-box-footer">Klik disini! <i class="fas fa-arrow-circle-right"></i></a>
                     </div>

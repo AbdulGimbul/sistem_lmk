@@ -21,6 +21,8 @@ class Filters extends BaseConfig
 		'honeypot' => Honeypot::class,
 		'admin' => \App\Filters\Admin::class,
 		'user' => \App\Filters\User::class,
+		'jwtauth' => \App\Filters\JwtFilter::class,
+		'cors' => \App\Filters\Cors::class
 	];
 
 	/**
@@ -33,8 +35,9 @@ class Filters extends BaseConfig
 		'before' => [
 			// 'honeypot',
 			// 'csrf',
-			'admin' => ['except' => 'auth/*'],
-			'user' => ['except' => 'auth/*'],
+			'admin' => ['except' => ['auth/*', 'authapi/*', 'guruapi', 'guruapi/*', 'muridapi/*', 'userapi/*']],
+			'user' => ['except' => ['auth/*', 'authapi/*', 'guruapi', 'guruapi/*', 'muridapi/*', 'userapi/*']],
+			'cors'
 		],
 		'after'  => [
 			'user' => [
@@ -42,6 +45,7 @@ class Filters extends BaseConfig
 					'home/*',
 					'guru', 'guru/detail/$arguments',
 					'murid',
+					'daftar', 'daftar/*'
 				]
 			],
 			'toolbar',

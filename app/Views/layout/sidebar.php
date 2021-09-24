@@ -27,7 +27,7 @@
                 with font-awesome or any other icon font library -->
 
                 <li class="nav-item">
-                    <a href="<?= base_url('/') ?>" class="nav-link">
+                    <a href="<?= base_url('daftar') ?>" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Pendaftaran
@@ -43,7 +43,6 @@
                     </a>
                 </li>
                 <?php if ($session->get('role') == 1) { ?>
-                    # code...
                     <li class="nav-item">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-copy"></i>
@@ -75,7 +74,7 @@
                     </li>
                 <?php } ?>
                 <li class="nav-item">
-                    <a href="pages/widgets.html" class="nav-link">
+                    <a href="<?= base_url('jadwal') ?>" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
                             Jadwal

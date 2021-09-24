@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\JadwalModel;
 use App\Models\MuridModel;
 
 class Murid extends BaseController
@@ -13,9 +14,11 @@ class Murid extends BaseController
      */
     protected $request;
     protected $muridModel;
+    protected $jadwalModel;
     public function __construct()
     {
         $this->muridModel = new MuridModel();
+        $this->jadwalModel = new JadwalModel();
     }
 
     public function index()
@@ -32,11 +35,12 @@ class Murid extends BaseController
         $murid = $murid->paginate(7, 'murid');
         $pager = $this->muridModel->pager;
 
+
         $data = [
             'title' => 'Data Murid',
             'murid' => $murid,
             'pager' => $pager,
-            'currentPage' => $currentPage
+            'currentPage' => $currentPage,
         ];
 
         return view('murid/index', $data);
@@ -108,14 +112,16 @@ class Murid extends BaseController
 
     public function detail($id)
     {
+        $jadwal = $this->jadwalModel->getJadwal($id);
+
         $data = [
             'title' => 'Detail Murid',
-            'murid' => $this->muridModel->getMurid($id)
+            'murid' => $this->muridModel->getMurid($id),
+            'jadwal' => $jadwal
         ];
 
         //jika murid tidak ada di tabel
         if (empty($data['murid'])) {
-            # code...
             throw new \CodeIgniter\Exceptions\PageNotFoundException('Nama murid dengan id ' . $id . ' tidak ditemukan.');
         }
 
@@ -216,5 +222,39 @@ class Murid extends BaseController
         session()->setFlashdata('pesan', 'Data murid berhasil diubah.');
 
         return redirect()->to('/murid');
+    }
+
+    public function statusTerima($id)
+    {
+        $db = \Config\Database::connect();
+
+        $builderJadwal = $db->table('tbl_jadwal');
+        $builderJadwal->set('status', 1);
+        $builderJadwal->where('id_jadwal', $id);
+        $builderJadwal->update();
+
+        $builderDaftar = $db->table('tbl_pendaftaran');
+        $builderDaftar->set('status', 1);
+        $builderDaftar->where('id_daftar', $id);
+        $builderDaftar->update();
+
+        return redirect()->to('/murid/' . $id);
+    }
+
+    public function statusTolak($id)
+    {
+        $db = \Config\Database::connect();
+
+        $builderJadwal = $db->table('tbl_jadwal');
+        $builderJadwal->set('status', 2);
+        $builderJadwal->where('id_jadwal');
+        $builderJadwal->update();
+
+        $builderDaftar = $db->table('tbl_pendaftaran');
+        $builderDaftar->set('status', 2);
+        $builderDaftar->where('id_daftar', $id);
+        $builderDaftar->update();
+
+        return redirect()->to('/murid/' . $id);
     }
 }

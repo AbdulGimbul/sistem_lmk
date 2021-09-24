@@ -28,7 +28,7 @@
                             <?php foreach ($guru as $g) : ?>
                                 <tr>
                                     <th scope="row"><?= $i++ ?></th>
-                                    <td><img src="<?php base_url() ?>/assets/img/<?= $g['avatar']; ?>" class="avatar" alt=""></td>
+                                    <td><img src="<?= $g['avatar']; ?>" class="avatar" alt=""></td>
                                     <td><?= $g['nama']; ?></td>
                                     <td><?= $g['alamat']; ?></td>
                                     <td>

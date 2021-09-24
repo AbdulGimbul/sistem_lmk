@@ -10,7 +10,7 @@ class MuridModel extends Model
     protected $primaryKey = 'id_murid';
     protected $useTimestamps = true;
     protected $allowedFields = [
-        'nama', 'jk', 'tempat_lahir', 'tgl_lahir', 'alamat', 'asal_sekolah', 'kelas', 'avatar', 'created_at', 'updated_at'
+        'id_daftar', 'id_user', 'nama', 'jk', 'tempat_lahir', 'tgl_lahir', 'alamat', 'asal_sekolah', 'kelas', 'avatar', 'created_at', 'updated_at'
     ];
 
     public function getMurid($id = false)

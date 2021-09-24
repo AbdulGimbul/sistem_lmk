@@ -59,7 +59,7 @@
                                                                             <label for="first_name">
                                                                                 <h4>NIK</h4>
                                                                             </label>
-                                                                            <input type="text" class="form-control" name="first_name" id="first_name" value="<?= $user['nik'] ?>" title="enter your first name if any." readonly="">
+                                                                            <input type="text" class="form-control" name="first_name" id="first_name" value="<?= $user->nik ?>" title="enter your first name if any." readonly="">
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-group">
@@ -68,7 +68,7 @@
                                                                             <label for="last_name">
                                                                                 <h4>Nama Lengkap</h4>
                                                                             </label>
-                                                                            <input type="text" class="form-control" name="last_name" id="last_name" value="<?= $user['nama'] ?>" title="enter your last name if any." readonly="">
+                                                                            <input type="text" class="form-control" name="last_name" id="last_name" value="<?= $user->nama ?>" title="enter your last name if any." readonly="">
                                                                         </div>
                                                                     </div>
 
@@ -78,7 +78,7 @@
                                                                             <label for="phone">
                                                                                 <h4>Jenis Kelamin</h4>
                                                                             </label>
-                                                                            <input type="text" class="form-control" name="phone" id="phone" value="<?= $user['jk'] ?>" title="enter your phone number if any." readonly="">
+                                                                            <input type="text" class="form-control" name="phone" id="phone" value="<?= $user->jk ?>" title="enter your phone number if any." readonly="">
                                                                         </div>
                                                                     </div>
 
@@ -87,7 +87,7 @@
                                                                             <label for="mobile">
                                                                                 <h4>Alamat</h4>
                                                                             </label>
-                                                                            <input type="text" class="form-control" name="mobile" id="mobile" value="<?= $user['alamat'] ?>" title="enter your mobile number if any." readonly="">
+                                                                            <input type="text" class="form-control" name="mobile" id="mobile" value="<?= $user->alamat ?>" title="enter your mobile number if any." readonly="">
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-group">
@@ -96,7 +96,7 @@
                                                                             <label for="email">
                                                                                 <h4>Username</h4>
                                                                             </label>
-                                                                            <input type="email" class="form-control" name="email" id="email" value="<?= $user['username'] ?>" title="enter your email." readonly="">
+                                                                            <input type="email" class="form-control" name="email" id="email" value="<?= $user->username ?>" title="enter your email." readonly="">
                                                                         </div>
                                                                     </div>
 

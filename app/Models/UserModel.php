@@ -6,13 +6,24 @@ use CodeIgniter\Model;
 
 class UserModel extends Model
 {
+    // public function __construct()
+    // {
+    //     $this->session = session();
+    // }
+    protected $returnType = 'App\Entities\User';
     protected $table = 'user';
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'id_user';
     protected $allowedFields = [
         'nik', 'nama', 'jk', 'alamat', 'username', 'avatar', 'password', 'salt', 'created_at', 'updated_at'
     ];
 
-    protected $returnType = 'App\Entities\User';
+    // public function ambilEntities()
+    // {
+
+    //     if (!$session->has('isLoggedIn')) {
+    //         return $this->returnType = 'App\Entities\User';
+    //     }
+    // }
 
     protected $useTimestamps = false;
 
@@ -22,6 +33,6 @@ class UserModel extends Model
             return $this->findAll();
         }
 
-        return $this->where(['id' => $id])->first();
+        return $this->where(['id_user' => $id])->first();
     }
 }

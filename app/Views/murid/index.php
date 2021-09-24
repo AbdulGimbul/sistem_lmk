@@ -23,27 +23,39 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <table id="table-minimal" class="table table-bordered table-striped">
+                    <table id="table-minimal" class="table table-bordered">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Nama</th>
                                 <th scope="col">Jenis Kelamin</th>
                                 <th scope="col">Alamat</th>
+                                <th scope="col">Status</th>
                                 <th scope="col">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php $i = 1 + (7 * ($currentPage - 1)); ?>
                             <?php foreach ($murid as $m) : ?>
-                                <tr>
-                                    <th scope="row"><?= $i++ ?></th>
-                                    <td><?= $m['nama']; ?></td>
-                                    <td><?= $m['jk']; ?></td>
-                                    <td><?= $m['alamat']; ?></td>
-                                    <td>
-                                        <a href="<?= base_url('/murid/' . $m['id_murid']) ?>" class="btn btn-success">Detail</a>
-                                    </td>
+                                <?php
+                                $db = \Config\Database::connect();
+                                $cek = $db->query("SELECT * FROM tbl_jadwal WHERE id_murid = '" . $m['id_murid'] . "'")->getRowArray();
+                                if ($cek['status'] == 0) {
+                                    echo "<tr bgcolor='yellow'>";
+                                } elseif ($cek['status'] == 2) {
+                                    echo "<tr bgcolor='red'>";
+                                } else {
+                                    echo "<tr>";
+                                }
+                                ?>
+                                <th scope="row"><?= $i++ ?></th>
+                                <td><?= $m['nama']; ?></td>
+                                <td><?= $m['jk']; ?></td>
+                                <td><?= $m['alamat']; ?></td>
+                                <td><?= $cek['status']; ?></td>
+                                <td>
+                                    <a href="<?= base_url('/murid/' . $m['id_murid']) ?>" class="btn btn-success">Detail</a>
+                                </td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>

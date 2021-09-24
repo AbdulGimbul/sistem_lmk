@@ -39,8 +39,12 @@ $routes->delete('/murid/(:num)', 'Murid::delete/$1');
 $routes->get('/guru/edit/(:segment)', 'Guru::edit/$1');
 $routes->get('/murid/edit/(:segment)', 'Murid::edit/$1');
 $routes->get('/guru/(:any)', 'Guru::detail/$1');
+$routes->get('/murid/statusterima/(:segment)', 'Murid::statusTerima/$1');
+$routes->get('/murid/statustolak/(:segment)', 'Murid::statusTolak/$1');
 $routes->get('/murid/(:any)', 'Murid::detail/$1');
 $routes->resource('user');
+$routes->resource('guruapi');
+$routes->resource('muridapi');
 
 /*
  * --------------------------------------------------------------------

@@ -81,12 +81,14 @@ class Guru extends BaseController
         $fileFoto = $this->request->getFile('foto');
 
         if ($fileFoto->getError() == 4) {
-            $namaFoto = 'default.png';
+            $namaFoto = base_url('/assets/img/default.png');
         } else {
             //pindahkan foto ke folder img
             $fileFoto->move('assets/img');
             //ambil nama foto
             $namaFoto = $fileFoto->getName();
+
+            $simpanPath = base_url('/assets/img/' . $namaFoto);
         }
 
         $this->guruModel->save([
@@ -96,7 +98,7 @@ class Guru extends BaseController
             'tempat_lahir' => $this->request->getVar('tempat_lahir'),
             'tgl_lahir' => $this->request->getVar('tgl_lahir'),
             'alamat' => $this->request->getVar('alamat'),
-            'avatar' => $namaFoto
+            'avatar' => $simpanPath
         ]);
 
         session()->setFlashdata('pesan', 'Data guru berhasil ditambahkan.');

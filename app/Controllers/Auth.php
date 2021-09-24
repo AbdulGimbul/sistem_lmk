@@ -63,7 +63,7 @@ class Auth extends BaseController
         if ($this->request->getPost()) {
             //lakukan validasi untuk data yang dipost
             $data = $this->request->getPost();
-            $validate = $this->validation->run($data, 'login');
+            $this->validation->run($data, 'login');
             $errors = $this->validation->getErrors();
 
             if ($errors) {
@@ -84,7 +84,7 @@ class Auth extends BaseController
                 } else {
                     $sessData = [
                         'username' => $user->username,
-                        'id' => $user->id,
+                        'id' => $user->id_user,
                         'isLoggedIn' => TRUE,
                         'role' => $user->role
                     ];

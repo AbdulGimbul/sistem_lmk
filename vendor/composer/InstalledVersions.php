@@ -19,7 +19,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'aada293fdf482e7bde57e5e582631a3e38dc31f7',
+    'reference' => '8be67bc4b4b0e0f659aa306984cfe4ff6f6bc07c',
     'name' => 'codeigniter4/appstarter',
   ),
   'versions' => 
@@ -31,7 +31,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'aada293fdf482e7bde57e5e582631a3e38dc31f7',
+      'reference' => '8be67bc4b4b0e0f659aa306984cfe4ff6f6bc07c',
     ),
     'codeigniter4/framework' => 
     array (
@@ -59,6 +59,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '89c6201c74db25fa759ff16e78a4d8f32547770e',
+    ),
+    'firebase/php-jwt' => 
+    array (
+      'pretty_version' => 'v5.4.0',
+      'version' => '5.4.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'd2113d9b2e0e349796e72d2a63cf9319100382d2',
     ),
     'kint-php/kint' => 
     array (
