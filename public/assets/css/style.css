@@ -1,7 +1,16 @@
-.avatar{
-    width: 70px;
+.avatar {
+  width: 70px;
 }
 
 .table > tbody > tr > * {
-    vertical-align: middle;
+  vertical-align: middle;
+}
+
+@media (max-width: 767px) {
+  .hidden-tablet {
+    display: none;
+  }
+  .hidden-phone {
+    display: none;
+  }
 }

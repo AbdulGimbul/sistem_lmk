@@ -40,17 +40,18 @@ class Validation
 	//--------------------------------------------------------------------
 	// Rules
 	public $register = [
-		'nik' => [
-			'rules' => 'required|min_length[16]|max_length[16]',
-		],
+
 		'nama' => [
-			'rules' => 'required|min_length[1]',
+			'rules' => 'required|min_length[2]',
 		],
 		'alamat' => [
 			'rules' => 'required|min_length[5]',
 		],
 		'username' => [
-			'rules' => 'required|min_length[4]',
+			'rules' => 'required|min_length[3]',
+		],
+		'no_hp' => [
+			'rules' => 'required'
 		],
 		'password' => [
 			'rules' => 'required',
@@ -61,11 +62,6 @@ class Validation
 	];
 
 	public $register_errors = [
-		'nik' => [
-			'required' => '{field} harus diisi',
-			'min_length' => '{field} harus terdiri dari 16 angka',
-			'max_length' => '{field} harus terdiri dari 16 angka'
-		],
 		'nama' => [
 			'required' => '{field} harus diisi',
 			'min_length' => '{field} minimal 1 karakter'
@@ -76,7 +72,10 @@ class Validation
 		],
 		'username' => [
 			'required' => '{field} harus diisi',
-			'min_length' => '{field} minimal 4 karakter'
+			'min_length' => '{field} minimal 3 karakter'
+		],
+		'no_hp' => [
+			'required' => '{field} harus diisi'
 		],
 		'password' => [
 			'required' => '{field} harus diisi'
@@ -102,6 +101,33 @@ class Validation
 		],
 		'password' => [
 			'required' => '{field} harus diisi'
+		]
+	];
+
+	public $updatepassword = [
+
+		'current_password' => [
+			'rules' => 'required',
+		],
+		'new_password1' => [
+			'rules' => 'required|matches[new_password2]',
+		],
+		'new_password2' => [
+			'rules' => 'required|matches[new_password1]',
+		]
+	];
+
+	public $updatepassword_errors = [
+		'current_password' => [
+			'required' => '{field} harus diisi',
+		],
+		'new_password1' => [
+			'required' => '{field} harus diisi',
+			'matches' => '{field} tidak match dengan password'
+		],
+		'new_password2' => [
+			'required' => '{field} harus diisi',
+			'matches' => '{field} tidak match dengan password'
 		]
 	];
 
