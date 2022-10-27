@@ -7,11 +7,10 @@ use CodeIgniter\Model;
 class DaftarModel extends Model
 {
     protected $table = 'tbl_pendaftaran';
-    protected $primaryKey = 'id_daftar';
     protected $useTimestamps = true;
     protected $createdField = 'tanggal_daftar';
     protected $updatedField = '';
     protected $allowedFields = [
-        'status'
+        'id_daftar', 'id_murid'
     ];
 }

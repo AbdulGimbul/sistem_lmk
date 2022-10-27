@@ -35,17 +35,19 @@ class Filters extends BaseConfig
 		'before' => [
 			// 'honeypot',
 			// 'csrf',
-			'admin' => ['except' => ['auth/*', 'authapi/*', 'guruapi', 'guruapi/*', 'muridapi/*', 'userapi/*']],
-			'user' => ['except' => ['auth/*', 'authapi/*', 'guruapi', 'guruapi/*', 'muridapi/*', 'userapi/*']],
+			'admin' => ['except' => ['auth/*', 'authapi', 'authapi/*', 'guruapi', 'guruapi/*', 'muridapi/*', 'userapi/*', 'infoapi', 'infoapi/*', 'jadwalapi', 'jadwalapi/*', 'daftar', 'daftar/*']],
+			'user' => ['except' => ['auth/*', 'authapi', 'authapi/*', 'guruapi', 'guruapi/*', 'muridapi/*', 'userapi/*', 'infoapi', 'infoapi/*', 'jadwalapi', 'jadwalapi/*', 'daftar', 'daftar/*']],
 			'cors'
 		],
 		'after'  => [
 			'user' => [
 				'except' => [
 					'home/*',
-					'guru', 'guru/detail/$arguments',
-					'murid',
-					'daftar', 'daftar/*'
+					'daftar', 'daftar/*',
+					'user', 'user/*',
+					'guru', 'guru/*',
+					'jadwal', 'jadwal/*',
+					'jadwalapi', 'jadwalapi/*'
 				]
 			],
 			'toolbar',

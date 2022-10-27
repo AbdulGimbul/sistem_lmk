@@ -30,14 +30,80 @@ class Jadwal extends BaseController
     public function index()
     {
         $jadwal = $this->jadwalModel->getJadwal();
+        $guru = $this->guruModel->findAll();
+        $murid = $this->muridModel->findAll();
 
         $data = [
-            'title' => 'Form Pendaftaran',
+            'title' => 'Jadwal Les LMK',
             'jadwal' => $jadwal,
+            'guru' => $guru,
+            'murid' => $murid,
             'validation' => \Config\Services::validation()
         ];
 
-
         return view('jadwal/index', $data);
+    }
+
+    public function getJadwalGuru($id)
+    {
+
+        $ambilGuru = $this->jadwalModel->where(['id_guru' => $id])->first();
+        $ambilIdGuru = $ambilGuru['id_guru'];
+        $ambilJadwal = $this->jadwalModel->getJadwalGuru($ambilIdGuru);
+
+        foreach ($ambilJadwal as $j) {
+            $result[] = $j;
+            $data['Jadwal Guru'] = $result;
+
+            // $coba = $this->jadwalModel->where(['id_murid' => $cekOrtuMurid->id_murid]);
+            // echo $coba->id_murid;
+
+        }
+        // $ambilMurid = $this->muridModel->where(['id_user' => $ambilIdUser])->first();
+        // $ambilIdMurid = $ambilMurid['id_murid'];
+        return $this->respond($data);
+    }
+
+    public function save()
+    {
+
+        $this->jadwalModel->save([
+            'id_murid' => $this->request->getVar('murid'),
+            'id_guru' => $this->request->getVar('guru'),
+            'hari' => $this->request->getVar('hari'),
+            'jam' => $this->request->getVar('jam'),
+            'status' => 1
+        ]);
+
+        session()->setFlashdata('pesan', 'Jadwal LMK berhasil ditambahkan.');
+
+        return redirect()->to('/jadwal');
+    }
+
+    public function getUbah()
+    {
+        echo json_encode($this->jadwalModel->getJadwalById($_POST['id']));
+    }
+
+    public function update()
+    {
+        $id = $_POST['id'];
+
+        $data = [
+            'hari' => $this->request->getVar('hari'),
+            'jam' => $this->request->getVar('jam')
+        ];
+
+        $this->jadwalModel->update($id, $data);
+
+        return redirect()->to('/jadwal');
+    }
+
+    public function delete($id)
+    {
+
+        $this->jadwalModel->delete($id);
+        session()->setFlashdata('pesan', 'Data berhasil dihapus');
+        return redirect()->to('/jadwal');
     }
 }

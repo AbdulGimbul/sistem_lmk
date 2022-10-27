@@ -38,13 +38,29 @@ $routes->delete('/guru/(:num)', 'Guru::delete/$1');
 $routes->delete('/murid/(:num)', 'Murid::delete/$1');
 $routes->get('/guru/edit/(:segment)', 'Guru::edit/$1');
 $routes->get('/murid/edit/(:segment)', 'Murid::edit/$1');
+$routes->delete('/guru/luang/(:num)', 'Guru::delete_luang/$1');
+$routes->get('/guru/jadwal', 'Guru::jadwal');
+$routes->get('/guru/luang', 'Guru::luang');
+$routes->get('/guru/statuslihat/(:segment)', 'Guru::statusLihat/$1');
 $routes->get('/guru/(:any)', 'Guru::detail/$1');
 $routes->get('/murid/statusterima/(:segment)', 'Murid::statusTerima/$1');
 $routes->get('/murid/statustolak/(:segment)', 'Murid::statusTolak/$1');
 $routes->get('/murid/(:any)', 'Murid::detail/$1');
-$routes->resource('user');
-$routes->resource('guruapi');
-$routes->resource('muridapi');
+$routes->get('/infoapi', 'InfoApi::index');
+$routes->get('/infoapi/getprogram', 'InfoApi::getProgram');
+$routes->get('/infoapi/gettentang', 'InfoApi::getTentang');
+$routes->get('/infoapi/(:num)', 'InfoApi::show/$1');
+$routes->post('/authapi/login', 'AuthApi::login');
+$routes->post('/authapi/register', 'AuthApi::register');
+$routes->post('/user/updatepassword', 'User::updatePassword');
+$routes->get('/jadwalapi/getjadwalguru/(:num)', 'JadwalApi::getJadwalGuru/$1');
+$routes->get('/jadwalapi/getjadwaluser/(:num)', 'JadwalApi::getJadwalUser/$1');
+$routes->put('/userapi/updatefoto/(:num)', 'UserApi::updateFoto/$1');
+$routes->resource('authapi');
+$routes->resource('userapi', ['controller' => 'UserApi']);
+$routes->resource('guruapi', ['controller' => 'GuruApi']);
+$routes->resource('muridapi', ['controller' => 'MuridApi']);
+$routes->resource('jadwalapi', ['controller' => 'JadwalApi']);
 
 /*
  * --------------------------------------------------------------------
